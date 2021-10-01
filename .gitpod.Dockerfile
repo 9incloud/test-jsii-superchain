@@ -25,7 +25,7 @@ RUN npm i -g aws-cdk && \
   /tmp/aws/install
 
 # Setup user
-RUN adduser $USERNAME --shell /bin/bash --uid $USER_UID -U 
+RUN adduser gitpod --shell /bin/bash --uid 33333 -U 
 
 RUN mkdir -p /etc/sudoers.d
 
