@@ -7,7 +7,7 @@ USER root:root
 # Install custom tools, runtime, etc.
 RUN ["apt-get", "update"]
 
-RUN ["apt-get", "install", "-y", "zsh", "&&", "apt-get", "install", "-y", "jq", "wget"]
+RUN ["apt-get", "install", "-y", "zsh", "jq", "wget"]
 
 # install aws-sso-credential-process
 RUN cd /usr/local/bin && \
