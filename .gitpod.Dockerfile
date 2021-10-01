@@ -21,4 +21,13 @@ RUN npm i -g aws-cdk && \
   unzip /tmp/awscliv2.zip -d /tmp && \
   /tmp/aws/install
 
+ARG USERNAME=gitpod
+ARG USER_UID=33333
+
+# Setup user
+RUN adduser $USERNAME -s /bin/sh -u $USER_UID -U && \
+  mkdir -p /etc/sudoers.d && \
+  echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
+  chmod 0440 /etc/sudoers.d/$USERNAME
+
 USER superchain:superchain
