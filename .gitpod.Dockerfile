@@ -17,9 +17,9 @@ RUN cd /usr/local/bin && \
 
 # install aws cdk && aws-cli v2
 RUN npm i -g aws-cdk && \
-  curl "${AWS_CLI_V2_URL}" -o "awscliv2.zip" && \ 
-  unzip /tmp/awscliv2.zip && \
-  ./aws/install
+  curl "${AWS_CLI_V2_URL}" -o "/tmp/awscliv2.zip" && \ 
+  unzip /tmp/awscliv2.zip -d /tmp && \
+  /tmp/aws/install
 
 #USER gitpod
 
