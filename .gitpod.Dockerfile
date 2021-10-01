@@ -1,6 +1,7 @@
 FROM jsii/superchain:1-buster-slim
 
 ARG AWS_CLI_V2_URL='https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'
+ARG CRED_PROCESS_URL='https://raw.githubusercontent.com/pahud/vscode/main/.devcontainer/bin/aws-sso-credential-process'
 
 USER root:root
 
