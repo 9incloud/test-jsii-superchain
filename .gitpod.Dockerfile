@@ -25,8 +25,6 @@ RUN npm i -g aws-cdk && \
   /tmp/aws/install
 
 # Setup user
-RUN adduser gitpod --shell /bin/bash --uid 33333 -U 
-
 RUN mkdir -p /etc/sudoers.d
 
 RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
