@@ -21,9 +21,8 @@ RUN npm i -g aws-cdk && \
   unzip /tmp/awscliv2.zip -d /tmp && \
   /tmp/aws/install
 
-#USER gitpod
-
-USER superchain:superchain
+USER gitpod
+# USER superchain:superchain
 
 COPY ./.gitpod/oh-my-zsh.sh ./.gitpod/oh-my-zsh.sh
 
