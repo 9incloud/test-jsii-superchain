@@ -3,8 +3,6 @@ FROM jsii/superchain:1-buster-slim
 ARG AWS_CLI_V2_URL='https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'
 ARG CRED_PROCESS_URL='https://raw.githubusercontent.com/pahud/vscode/main/.devcontainer/bin/aws-sso-credential-process'
 ARG USERNAME=gitpod
-ARG USER_UID=33333
-ARG USER_GID=33333
 
 USER root:root
 
@@ -24,11 +22,9 @@ RUN npm i -g aws-cdk && \
   unzip /tmp/awscliv2.zip -d /tmp && \
   /tmp/aws/install
 
-# Setup user
-RUN mkdir -p /etc/sudoers.d
-
-RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
-
-RUN chmod 0440 /etc/sudoers.d/$USERNAME
+# add gitpod 
+RUN mkdir -p /etc/sudoers.d && \
+  echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
+  chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER superchain:superchain
