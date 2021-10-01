@@ -15,15 +15,15 @@ RUN cd /usr/local/bin && \
   curl -o aws-sso-credential-process "${CRED_PROCESS_URL}" && \
   chmod +x aws-sso-credential-process
 
-#USER gitpod
-
-USER superchain:superchain
-
 # install aws cdk && aws-cli v2
 RUN npm i -g aws-cdk && \
   curl "${AWS_CLI_V2_URL}" -o "awscliv2.zip" && \ 
   unzip /tmp/awscliv2.zip && \
-  sudo ./aws/install
+  ./aws/install
+
+#USER gitpod
+
+USER superchain:superchain
 
 COPY ./.gitpod/oh-my-zsh.sh ./.gitpod/oh-my-zsh.sh
 
