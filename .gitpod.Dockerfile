@@ -25,9 +25,12 @@ RUN npm i -g aws-cdk && \
   /tmp/aws/install
 
 # Setup user
-RUN adduser $USERNAME --shell /bin/bash --uid $USER_UID -U && \
-  mkdir -p /etc/sudoers.d && \
-  echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-  chmod 0440 /etc/sudoers.d/$USERNAME
+RUN adduser $USERNAME --shell /bin/bash --uid $USER_UID -U 
+
+RUN mkdir -p /etc/sudoers.d
+
+RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
+
+RUN chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER superchain:superchain
