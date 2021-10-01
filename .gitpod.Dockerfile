@@ -4,6 +4,7 @@ ARG AWS_CLI_V2_URL='https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'
 ARG CRED_PROCESS_URL='https://raw.githubusercontent.com/pahud/vscode/main/.devcontainer/bin/aws-sso-credential-process'
 ARG USERNAME=gitpod
 ARG USER_UID=33333
+ARG USER_GID=33333
 
 USER root:root
 
@@ -24,7 +25,7 @@ RUN npm i -g aws-cdk && \
   /tmp/aws/install
 
 # Setup user
-RUN adduser $USERNAME -s /bin/sh -u $USER_UID -U && \
+RUN adduser $USERNAME --shell /bin/bash --uid $USER_UID --gid $USER_GID && \
   mkdir -p /etc/sudoers.d && \
   echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
   chmod 0440 /etc/sudoers.d/$USERNAME
