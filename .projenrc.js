@@ -54,11 +54,6 @@ sudo chmod +x ./.gitpod/oh-my-zsh.sh && ./.gitpod/oh-my-zsh.sh`,
 });
 
 gitpod.addCustomTask({
-  name: 'run docker',
-  command: 'sudo docker-up &',
-});
-
-gitpod.addCustomTask({
   name: 'change default shell to zsh and start zsh shell',
   command: 'sudo chsh -s $(which zsh) && zsh',
 });
